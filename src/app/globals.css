@@ -2,25 +2,120 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #1a1a1a;
+  --ink: #1a1a1a;
+  --ink-soft: #444444;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --border-strong: #c9cdd3;
+  --surface-muted: #f5f7f9;
+  --brand-red: #e31837;
+  --brand-blue: #012169;
+  --brand-blue-mid: #0a3a7a;
+  --brand-blue-soft: #1a5a9c;
+  --brand-link: #0066a1;
+  --footer-bg: #0b1f33;
+  --footer-text: #ffffff;
+  --footer-muted: #9db0c3;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-display {
+  font-family: var(--font-display), Georgia, "Times New Roman", serif;
+}
+
+.field-control {
+  width: 100%;
+  border: 1px solid var(--border-strong);
+  background: #fff;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.9375rem;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.field-control:hover {
+  border-color: #9aa3af;
+}
+
+.field-control:focus {
+  border-color: var(--brand-blue);
+  box-shadow: 0 0 0 1px var(--brand-blue);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.2s ease-out both;
+}
+
+.animate-rise {
+  animation: rise 0.45s ease-out both;
+}
+
+.animate-rise-delay {
+  animation: rise 0.5s ease-out 0.08s both;
+}
+
+.animate-rise-delay-2 {
+  animation: rise 0.55s ease-out 0.16s both;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--brand-red) 18%, white);
+  color: var(--ink);
 }
