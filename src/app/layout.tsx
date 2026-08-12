@@ -23,11 +23,7 @@ export const metadata: Metadata = {
     "Estimate the future value of your SIP or lump sum investments with Calc Wealth's enterprise investment calculator.",
   applicationName: "Calc Wealth",
   icons: {
-    icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/icon", type: "image/png", sizes: "32x32" },
-    ],
-    apple: [{ url: "/apple-icon", type: "image/png", sizes: "180x180" }],
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
   },
 };
 

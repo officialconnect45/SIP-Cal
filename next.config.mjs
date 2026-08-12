@@ -1,8 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Prefer JS config on Hostinger — TS config needs native SWC, which fails on older GLIBC.
+  // Static export — Hostinger serves `out/` without a Node process (avoids 503 PORT issues).
+  output: "export",
+  images: {
+    unoptimized: true,
+  },
   poweredByHeader: false,
-  // Avoid Hostinger proxy issues with trailing redirects.
   trailingSlash: false,
 };
 
