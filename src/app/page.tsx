@@ -32,16 +32,50 @@ export default function Home() {
 
       <section className="border-t border-[var(--border)] bg-[var(--surface-muted)]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-          <div className="max-w-2xl">
+          <div className="max-w-3xl">
             <h2 className="font-display text-2xl text-[var(--ink)]">
               Plan with clarity
             </h2>
-            <p className="mt-3 text-[15px] leading-relaxed text-[var(--ink-soft)]">
-              A Systematic Investment Plan (SIP) invests a fixed amount at regular
-              intervals, helping average purchase cost over time. Use this tool
-              to model contributions, expected returns, and optional annual
-              step-ups before you speak with an advisor.
-            </p>
+            <div className="mt-4 space-y-4 text-[15px] leading-relaxed text-[var(--ink-soft)]">
+              <p>
+                A Systematic Investment Plan (SIP) invests a fixed amount at
+                regular intervals—usually every month—into a chosen mutual fund
+                or investment option. Instead of trying to guess the perfect day
+                to enter the market, you invest steadily through ups and downs.
+                That habit can help average your purchase cost over time and keep
+                your plan moving even when headlines feel uncertain.
+              </p>
+              <p>
+                Clarity starts with three simple inputs: how much you can invest
+                each month, how long you can stay invested, and what return you
+                are willing to assume for planning. None of these numbers need to
+                be perfect on day one. The purpose of a calculator is to turn
+                vague goals into visible scenarios so you can compare choices
+                before you commit money. Small changes in monthly amount,
+                duration, or expected return can create large differences in
+                estimated corpus over ten or twenty years.
+              </p>
+              <p>
+                Use this tool to model contributions, expected annual returns,
+                and optional annual step-ups. A step-up increases your SIP each
+                year as income grows, which can strengthen long-term outcomes
+                without requiring a large jump in today’s budget. Switch between
+                SIP and lump sum if you are deciding whether to invest gradually
+                or put a larger amount to work at once. Review total invested,
+                estimated returns, and inflation-adjusted value together so you
+                see both growth and purchasing power.
+              </p>
+              <p>
+                Treat every result as an educational estimate, not a promise.
+                Markets vary, fund expenses and taxes are not included here, and
+                past performance does not guarantee future results. When your
+                numbers look clear enough, take the scenario to a registered
+                advisor or your financial institution and ask how it fits your
+                risk profile, goals, and product options. Planning with clarity
+                means replacing guesswork with structured assumptions—and
+                updating those assumptions as your life and income change.
+              </p>
+            </div>
           </div>
 
           <div className="mt-10 grid sm:grid-cols-3 gap-8">
