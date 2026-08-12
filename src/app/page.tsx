@@ -1,3 +1,4 @@
+import Link from "next/link";
 import SipCalculator from "@/components/SipCalculator";
 
 export default function Home() {
@@ -13,9 +14,13 @@ export default function Home() {
               className="hidden sm:flex items-center gap-2 text-xs text-white/85"
               aria-label="Breadcrumb"
             >
-              <span>Home</span>
+              <Link href="/" className="hover:text-white">
+                Home
+              </Link>
               <span aria-hidden>/</span>
-              <span>Tools</span>
+              <Link href="/info/tools" className="hover:text-white">
+                Tools
+              </Link>
               <span aria-hidden>/</span>
               <span className="text-white font-medium">SIP Calculator</span>
             </nav>

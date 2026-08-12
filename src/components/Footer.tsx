@@ -4,47 +4,44 @@ const columns = [
   {
     title: "Investing",
     links: [
-      { label: "Mutual Funds", href: "#" },
-      { label: "SIP Plans", href: "#" },
-      { label: "Lump Sum Investing", href: "#" },
-      { label: "Retirement Planning", href: "#" },
+      { label: "Mutual Funds", href: "/info/mutual-funds" },
+      { label: "SIP Plans", href: "/info/sip-plans" },
+      { label: "Lump Sum Investing", href: "/info/lump-sum" },
+      { label: "Retirement Planning", href: "/info/retirement" },
     ],
   },
   {
     title: "Tools & Resources",
     links: [
       { label: "SIP Calculator", href: "/" },
-      { label: "Goal Planner", href: "#" },
-      { label: "Risk Profiler", href: "#" },
-      { label: "Market Insights", href: "#" },
+      { label: "Tools Overview", href: "/info/tools" },
+      { label: "Help Center", href: "/info/help-center" },
+      { label: "FAQs", href: "/info/faqs" },
     ],
   },
   {
     title: "Support",
     links: [
-      { label: "Help Center", href: "#" },
-      { label: "Contact Us", href: "#" },
-      { label: "Find an Advisor", href: "#" },
-      { label: "FAQs", href: "#" },
+      { label: "Contact Us", href: "/info/contact" },
+      { label: "Advice", href: "/info/advice" },
+      { label: "Planning", href: "/info/planning" },
     ],
   },
   {
     title: "Company",
     links: [
-      { label: "About Calc Wealth", href: "#" },
-      { label: "Careers", href: "#" },
-      { label: "Newsroom", href: "#" },
-      { label: "Investor Relations", href: "#" },
+      { label: "About Calc Wealth", href: "/info/about" },
+      { label: "Disclosures", href: "/info/disclosures" },
+      { label: "Accessibility", href: "/info/accessibility" },
     ],
   },
 ];
 
 const legalLinks = [
-  { label: "Privacy", href: "#" },
-  { label: "Security", href: "#" },
-  { label: "Terms of Use", href: "#" },
-  { label: "Disclosures", href: "#" },
-  { label: "Accessibility", href: "#" },
+  { label: "Privacy", href: "/info/privacy" },
+  { label: "Security", href: "/info/security" },
+  { label: "Terms of Use", href: "/info/terms" },
+  { label: "Disclosures", href: "/info/disclosures" },
 ];
 
 export default function Footer() {
@@ -73,28 +70,22 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="mt-12 pt-8 border-t border-white/10 flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8">
+        <div className="mt-12 pt-8 border-t border-white/10">
           <div className="max-w-xl">
-            <div className="flex items-center gap-2.5 mb-3">
+            <Link href="/" className="flex items-center gap-2.5 mb-3 w-fit">
               <span className="flex h-8 w-8 items-center justify-center rounded-sm bg-[var(--brand-red)] text-white text-xs font-semibold">
                 CW
               </span>
               <span className="text-sm font-semibold text-white">
                 Calc Wealth
               </span>
-            </div>
+            </Link>
             <p className="text-xs leading-relaxed text-[var(--footer-muted)]">
               Illustrative estimates only. Actual investment returns vary with
               market conditions, fees, and product selection. This calculator
               does not constitute investment advice or a solicitation to buy or
               sell any security.
             </p>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <SocialLink label="LinkedIn" />
-            <SocialLink label="X" />
-            <SocialLink label="YouTube" />
           </div>
         </div>
       </div>
@@ -118,19 +109,5 @@ export default function Footer() {
         </div>
       </div>
     </footer>
-  );
-}
-
-function SocialLink({ label }: { label: string }) {
-  return (
-    <a
-      href="#"
-      aria-label={label}
-      className="inline-flex h-9 w-9 items-center justify-center border border-white/20 text-white/80 hover:bg-white/10 hover:text-white transition-colors"
-    >
-      <span className="text-[10px] font-semibold tracking-wide">
-        {label.slice(0, 2).toUpperCase()}
-      </span>
-    </a>
   );
 }

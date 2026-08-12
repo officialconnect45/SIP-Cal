@@ -3,22 +3,17 @@
 import { useState } from "react";
 import Link from "next/link";
 
-const utilityLinks = [
-  { label: "Log In", href: "#" },
-  { label: "Locations", href: "#" },
-  { label: "Contact", href: "#" },
-];
+const utilityLinks = [{ label: "Contact", href: "/info/contact" }];
 
 const navLinks = [
-  { label: "Investing", href: "#" },
-  { label: "Planning", href: "#" },
-  { label: "Tools", href: "#" },
-  { label: "Advice", href: "#" },
+  { label: "Investing", href: "/info/investing" },
+  { label: "Planning", href: "/info/planning" },
+  { label: "Tools", href: "/info/tools" },
+  { label: "Advice", href: "/info/advice" },
 ];
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [searchOpen, setSearchOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-[var(--border)]">
@@ -71,21 +66,19 @@ export default function Navbar() {
               ))}
             </nav>
 
-            <button
-              type="button"
-              onClick={() => setSearchOpen((v) => !v)}
+            <Link
+              href="/info/tools"
               className="inline-flex items-center gap-1.5 px-2.5 py-2 text-sm font-medium text-[var(--ink)] hover:bg-[var(--surface-muted)] transition-colors"
-              aria-expanded={searchOpen}
-              aria-label="Search"
+              aria-label="Tools"
             >
               <SearchIcon />
-              <span className="hidden sm:inline">Search</span>
-            </button>
+              <span className="hidden sm:inline">Tools</span>
+            </Link>
 
             <button
               type="button"
               onClick={() => setMenuOpen((v) => !v)}
-              className="inline-flex items-center gap-1.5 px-2.5 py-2 text-sm font-medium text-[var(--ink)] hover:bg-[var(--surface-muted)] transition-colors"
+              className="inline-flex items-center gap-1.5 px-2.5 py-2 text-sm font-medium text-[var(--ink)] hover:bg-[var(--surface-muted)] transition-colors lg:hidden"
               aria-expanded={menuOpen}
               aria-label="Menu"
             >
@@ -95,26 +88,6 @@ export default function Navbar() {
             </button>
           </div>
         </div>
-
-        {searchOpen && (
-          <div className="pb-4 animate-fade-in">
-            <label htmlFor="site-search" className="sr-only">
-              Search Calc Wealth
-            </label>
-            <div className="relative">
-              <input
-                id="site-search"
-                type="search"
-                placeholder="Search calculators, products, and advice"
-                className="w-full border border-[var(--border-strong)] bg-white px-4 py-2.5 pr-10 text-sm text-[var(--ink)] outline-none focus:border-[var(--brand-blue)] focus:ring-1 focus:ring-[var(--brand-blue)]"
-                autoFocus
-              />
-              <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[var(--muted)]">
-                <SearchIcon />
-              </span>
-            </div>
-          </div>
-        )}
 
         {menuOpen && (
           <div className="border-t border-[var(--border)] py-4 lg:hidden animate-fade-in">
@@ -129,12 +102,13 @@ export default function Navbar() {
                   {link.label}
                 </Link>
               ))}
-              <div className="mt-2 flex flex-wrap gap-4 border-t border-[var(--border)] pt-3 px-2 md:hidden">
+              <div className="mt-2 flex flex-wrap gap-4 border-t border-[var(--border)] pt-3 px-2">
                 {utilityLinks.map((link) => (
                   <Link
                     key={link.label}
                     href={link.href}
                     className="text-xs font-medium text-[var(--brand-link)]"
+                    onClick={() => setMenuOpen(false)}
                   >
                     {link.label}
                   </Link>

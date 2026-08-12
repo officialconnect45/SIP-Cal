@@ -1,15 +1,15 @@
-"use client";
+import Link from "next/link";
 
 export default function ChatFab() {
   return (
-    <button
-      type="button"
+    <Link
+      href="/info/contact"
       className="fixed bottom-6 right-6 z-40 inline-flex items-center gap-2 bg-[var(--brand-blue)] px-4 py-3 text-sm font-semibold text-white shadow-lg hover:bg-[var(--brand-blue-mid)] transition-colors"
-      aria-label="Open chat support"
+      aria-label="Contact support"
     >
       <ChatIcon />
       Chat
-    </button>
+    </Link>
   );
 }
 
