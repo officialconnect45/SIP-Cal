@@ -1,0 +1,6 @@
+{
+  "framework": "next",
+  "build": "npm run build",
+  "outputDirectory": "out",
+  "node": "20"
+}
