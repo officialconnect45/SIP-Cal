@@ -15,7 +15,8 @@
 
 # next.js
 /.next/
-/out/
+# Keep /out committed so Hostinger can deploy without a slow Next compile (old GLIBC → WASM SWC).
+# /out/
 
 # production
 /build
