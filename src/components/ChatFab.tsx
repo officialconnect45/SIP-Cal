@@ -4,7 +4,7 @@ export default function ChatFab() {
   return (
     <Link
       href="/info/contact"
-      className="fixed bottom-6 right-6 z-40 inline-flex items-center gap-2 bg-[var(--brand-blue)] px-4 py-3 text-sm font-semibold text-white shadow-lg hover:bg-[var(--brand-blue-mid)] transition-colors"
+      className="chat-fab fixed bottom-6 right-6 z-40 inline-flex items-center gap-2 bg-[var(--brand-blue)] px-4 py-3 text-sm font-semibold text-white shadow-lg hover:bg-[var(--brand-blue-mid)] transition-colors"
       aria-label="Contact support"
     >
       <ChatIcon />

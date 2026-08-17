@@ -1,0 +1,31 @@
+---
+description: Earnads interstitial on the SIP homepage (adlinkfly → loader)
+alwaysApply: true
+---
+
+# Earnads interstitial (this site is screen 1)
+
+This calculator replaces WordPress mid-page only. Earnings still happen on Earnads `/loader/{CODE}` via `GET /api/links/resolve/:code`. Do not inject this into Shortner-Frontend.
+
+## Product flow
+
+`https://earnads.net/r/CODE` → 302 → `https://cal.mukhyamantriyojanadoot.com/?adlinkfly=CODE` → Continue → `https://earnads.net/loader/CODE` → resolve (click + payout) → destination.
+
+Param name is `SHORTNER_INTERSTITIAL_PARAM` (must stay `adlinkfly`). Backend: `SHORTNER_INTERSTITIAL_BASE_URL=https://cal.mukhyamantriyojanadoot.com/`.
+
+## What this Next.js site must do
+
+- `?adlinkfly=CODE`: keep SIP calculator visible; sticky Continue after ~5s; go to `LOADER_BASE + encodeURIComponent(code)`.
+- No param: calculator only. Exit immediately.
+- Never `/loading` without the code (`earnads_sc` is on earnads.net; cross-domain cookies fail).
+- Never call `/api/links/resolve/` from the calculator (double views / uniqueness).
+- Do not inject vignette (`n6wxm.com`) or CleverCore. Ads later via Google Ad Manager. Publisher payout depends on reaching the loader, not ads filling here.
+
+## Implementation (already in this repo)
+
+- `src/components/EarnadsInterstitial.tsx` — client component; read query after mount (`window.location.search`).
+- Mount only on `/` in `src/app/page.tsx`. Styles in `src/app/globals.css` (`#earnads-bar`, `body.has-earnads-bar`).
+- Local: `NEXT_PUBLIC_EARNADS_LOADER_BASE=http://localhost:6001/loader/`
+- Production default: `https://earnads.net/loader/`
+
+Do not drop a raw `<script>` in `index.html` — this app is client-rendered; the bar must exist after React mounts.

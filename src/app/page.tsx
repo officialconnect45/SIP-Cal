@@ -1,4 +1,6 @@
 import Link from "next/link";
+import EarnadsInterstitial from "@/components/EarnadsInterstitial";
+import GamAdSlot from "@/components/GamAdSlot";
 import SipCalculator from "@/components/SipCalculator";
 
 export default function Home() {
@@ -27,6 +29,8 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      <GamAdSlot />
 
       <SipCalculator />
 
@@ -94,6 +98,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <EarnadsInterstitial />
     </>
   );
 }
